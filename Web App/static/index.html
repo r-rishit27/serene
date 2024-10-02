@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            width: 100%;
+            height: 100%;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Intro Page */
+        #intro-page {
+            background-image: url("https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg");
+            background-size: cover;
+            backdrop-filter: blur(2px);
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: "Bodoni Moda", serif;
+            font-size: 120px;
+            color: rgb(43, 40, 40);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            
+        }
+
+        #scroll-down {
+            font-size: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Chatbot Page */
+        #chat-page {
+            display: flex; /* Set flex for 70-30 layout */
+            flex-direction: row;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-color: #e7e4e4;
+            color: rgb(27, 26, 26);
+        }
+
+        /* 70% Image Background with Facts */
+        #image-container {
+            width: 70%;
+            height: 100%;
+            position: relative;
+            background-image: url("https://i.pinimg.com/564x/32/5b/46/325b46bf0873d5676f5b3c54ca8a502e.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #fact-container {
+            width: 100%;
+            height: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 50px;
+            font-family: "Bodoni Moda", serif;
+        }
+
+        #fact-text {
+            text-align: center;
+            font-size: inherit;
+            line-height: 1.5;
+        }
+
+        /* 30% Chatbot Section */
+        #chat-container {
+            width: 45%;
+            height: 100%;
+            padding: 20px;
+            background-color:#e7e4e4;
+
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            z-index: 0;
+        }
+
+        #chatbox {
+            flex: 1;
+            border: 1px solid #303030;
+            overflow-y: auto;
+            background-color: transparent;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        #message {
+            width: calc(100% - 21px);
+            padding: 10px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+            margin:10px;
+
+        }
+
+        #send {
+            padding: 10px;
+            border-radius: 15px;
+            background-color: #373737;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Chatbot Details Page */
+        #chatbot-details-page {
+            background-color: #000000;
+            color: #c3bdbd;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            height: 50%
+        }
+
+        #chatbot-details-page h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #chatbot-details-page p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* Team Intro Page */
+        /* Meet the Team Page Grid */
+        #team-page {
+            background-color: #eaeaea;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+
+        #team-page h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .team-member h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .team-member .social-links a {
+            text-decoration: none;
+            color: #0077b5; /* LinkedIn Blue */
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .team-member .social-links a.github {
+            color: #333; /* GitHub Black */
+        }
+         /* Add this to your existing CSS */
+    .user-message {
+        background-color: #007bff; /* Blue background for user messages */
+        color: white; /* White text for user messages */
+        padding: 10px;
+        border-radius: 15px;
+        margin: 5px 0;
+        align-self: flex-end; /* Align user messages to the right */
+        max-width: 70%; /* Limit the width */
+    }
+
+    .bot-message {
+        background-color: #ffffff; /* White background for bot messages */
+        color: #000; /* Black text for bot messages */
+        padding: 10px;
+        border-radius: 15px;
+        margin: 5px 0;
+        align-self: flex-start; /* Align bot messages to the left */
+        max-width: 70%; /* Limit the width */
+    }
+    #loom-companion-mv3 {
+        display: none !important;
+    }
+    
+    #loom-companion-mv3 section {
+        display: none !important;
+    }
+    
+
+ </style>
+
+ <script>
+    function appendMessage(message, from) {
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+
+        // Apply styles based on sender
+        if (from === 'You') {
+            messageDiv.classList.add('message', 'user-message');
+        } else {
+            messageDiv.classList.add('message', 'bot-message');
+        }
+
+        chatbox.appendChild(messageDiv);
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+</script>
+</head>
+<body>
+
+<!-- Intro Page -->
+<section id="intro-page">
+    <img id="logo" src="" alt="" style="width: 150px; height: auto;"/>
+    <div>Serene</div>
+    <div id="slogan" style="font-size: 20px; color: rgb(211, 209, 209); margin-top: 10px; background:#242424">"Connecting You to Your Inner Peace"</div>
+    <div id="scroll-down" onclick="document.getElementById('chat-page').scrollIntoView();"> Go to Chatbot</div>
+</section>
+
+<section id="chatbot-details-page">
+    <h1 size=10px>About Serene</h1>
+    <p>Serene is an AI-powered chatbot designed to provide users with insightful mental health tips and engage in meaningful conversations to improve their well-being. Our chatbot uses cutting-edge technology to offer a calming and interactive experience, providing personalized suggestions based on user inputs.</p>
+    
+</section>
+<!-- Chatbot Page -->
+<section id="chat-page">
+    <!-- 70% Image and Facts -->
+    <div id="image-container">
+        <div id="fact-container">
+            <div id="fact-text">Your mind-related fact will go here.</div>
+        </div>
+    </div>
+
+    <!-- 30% Chatbot -->
+    <div id="chat-container">
+        <h1 >Getting started with Serene</h1>
+        <div id="chatbox"></div>
+        <input type="text" id="message" placeholder="Type your message here..." />
+        <button id="send">Send</button>
+    </div>
+</section>
+
+<!-- Chatbot Details Page -->
+
+<!-- Team Intro Page -->
+    <h1>Our Team</h1>
+    <div id="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-member">
+            <h3>Azad Kumar</h3>
+            <p>ML Ops Engineer</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/azad-kumar-jha" target="_blank">LinkedIn</a>
+                <a href="https://github.com/thisz-akj" target="_blank" class="github">GitHub</a>
+            </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="team-member">
+            <h3>Prince Maurya</h3>
+            <p>Android Application Developer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/prince-maurya-3939311a9/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/princemaurya002" target="_blank" class="github">GitHub</a>
+            </div>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="team-member">
+            <h3>Harsh Gupta</h3>
+            <p>Android Application Developer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/harshgupta1064/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/harshgupta1064" target="_blank" class="github">GitHub</a>
+            </div>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="team-member">
+            <h3>Rishit Rastogi</h3>
+            <p>AI Engineer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/rishit-rastogi-1aa545208/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/r-rishit27" target="_blank" class="github">GitHub</a>
+            </div>
+        </div>
+    </div>
+<script>
+    const chatbox = document.getElementById('chatbox');
+    const messageInput = document.getElementById('message');
+    const sendButton = document.getElementById('send');
+
+    function appendMessage(message, from) {
+        const messageDiv = document.createElement('div');
+        messageDiv.textContent = message;
+        messageDiv.classList.add('message', from === 'You' ? 'user-message' : 'bot-message');
+        chatbox.appendChild(messageDiv);
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    sendButton.addEventListener('click', async () => {
+        const message = messageInput.value;
+        if (message) {
+            appendMessage(message, 'You');
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ input: message })
+            });
+            const result = await response.json();
+            appendMessage(result.response, 'Bot');
+            messageInput.value = '';
+        }
+    });
+
+    const facts = [
+        "Mental health is just as important as physical health.",
+        "Talking about your feelings is a sign of strength.",
+        "It's okay to ask for help.",
+        "Self-care is not selfish; it’s essential.",
+        "Mindfulness can improve your mental well-being."
+    ];
+
+    let currentFactIndex = 0;
+let typingSpeed = 50; // Time in milliseconds between each character
+
+function typeFact(fact, index = 0) {
+    const factText = document.getElementById('fact-text');
+    if (index < fact.length) {
+        factText.textContent += fact.charAt(index); // Append one character at a time
+        setTimeout(() => typeFact(fact, index + 1), typingSpeed); // Call itself for the next character
+    }
+}
+
+function rotateFacts() {
+    const factText = document.getElementById('fact-text');
+    factText.textContent = ''; // Clear current fact
+    const fact = facts[currentFactIndex];
+    currentFactIndex = (currentFactIndex + 1) % facts.length; // Update index for next fact
+    typeFact(fact); // Start typing the new fact
+}
+
+setInterval(rotateFacts, 5000); // Rotate every 5 seconds
+</script>
+</body>
+</html>
+
