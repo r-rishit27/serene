@@ -98,11 +98,11 @@ Set up your environment variables for API keys and database settings in a .env f
 Run the Flask application:
 
 ```bash
-Copy code
+
 flask run
-📑 Requirements
-text
-Copy code
+**📑 Requirements
+text**
+```bash
 firebase-admin
 langchain
 chromadb
@@ -111,4 +111,4 @@ huggingface-hub
 python-dotenv
 kotlin
 flask
-```
+
