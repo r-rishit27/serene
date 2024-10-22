@@ -1,5 +1,7 @@
 # Serene - AI-Powered Mental Health Chatbot
 
+Website Demo :https://devfolio.co/projects/serene-c88c
+
 **Serene** is an innovative mental health chatbot designed to provide personalized support for students and working professionals. Developed for the **Google GenAI Hackathon**, Serene focuses on delivering empathetic, real-time conversations to help users navigate stress, anxiety, and emotional challenges. Our goal is to complement professional mental health services by offering accessible self-help resources.
 
 ## 🌿 Overview
@@ -83,19 +85,19 @@ Serene processes user queries with a **hybrid search system** that combines **La
    git clone https://github.com/your-repo/serene-mental-health-bot.git
    Navigate to the project directory:
 
-bash
-Copy code
+```bash
 cd serene-mental-health-bot
 Install the required dependencies:
 
-bash
-Copy code
+```bash
+
 pip install -r requirements.txt
+
 Set up your environment variables for API keys and database settings in a .env file.
 
 Run the Flask application:
 
-bash
+```bash
 Copy code
 flask run
 📑 Requirements
